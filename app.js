@@ -1,9 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
 const una = require('./routes/una');
-const router = express.Router();
 const config = require('./config');
+const db = require('./database');
+const app = express();
+const router = express.Router();
 const PORT = config.server.PORT;
 app.use(cors());
 app.use(express.json());
@@ -14,8 +15,14 @@ router.get('/', function (req, res) {
 })
 app.use(router);
 
-app.listen(PORT, () => {
-    console.log(`listening on ${PORT}`)
+app.listen(PORT, async () => {
+    try {
+        await db.authenticate();
+        console.log('Database connected successfully');
+        console.log(`listening on ${PORT}`)
+    } catch(err) {
+        console.error('Unable to connect to database', err.message);
+    }
 });
 
 module.exports = app;
