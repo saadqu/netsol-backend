@@ -22,4 +22,9 @@ router.delete(
     require('../../controllers/students/delete'),
 );
 
+router.put(
+    '/:id',
+    require('../../controllers/students/update'),
+);
+
 module.exports = router;
