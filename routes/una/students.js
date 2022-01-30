@@ -3,6 +3,11 @@ const { body, param } = require('express-validator');
 
 const router = express.Router();
 router.get('/', require('../../controllers/students/getAll'));
+router.get(
+    '/:id',
+    param('id').not().isEmpty().trim().escape(),
+    require('../../controllers/students/getOne'),
+);
 router.post(
     '/',
     body('f_name').not().isEmpty().trim().escape(),
