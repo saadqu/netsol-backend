@@ -4,7 +4,7 @@
   "description": "WRLD - Javascript Assignment",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec"
   },
   "keywords": [
     "WRLD"
@@ -12,11 +12,14 @@
   "author": "Saad Qureshi",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "dotenv": "^14.3.2",
     "express": "^4.17.2",
     "express-validator": "^6.14.0",
     "lodash": "^4.17.21",
+    "mocha": "^9.2.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.15.0",
     "sequelize-cli": "^6.4.1"
